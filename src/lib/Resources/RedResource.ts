@@ -1,7 +1,6 @@
 import { Resource } from '../Resource';
 import { Decimal } from 'decimal.js';
 import { writable, type Writable } from 'svelte/store';
-import validator from '../../classes/Validator';
 import { registerActionHandler } from '../Gamelib';
 
 export class RedResource extends Resource {

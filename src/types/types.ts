@@ -18,8 +18,9 @@ export type ValidateCondition = {
 
 export type Validate = {
 	name: string;
-	conditions: ValidateCondition[];
+	conditions?: ValidateCondition[];
 	result: Writable<boolean>;
+	fun: ValidateFun;
 };
 
 export type Requirement = {
