@@ -1,10 +1,12 @@
 import Button from '../components/Button.svelte';
 import type { GridObject } from '../types/types';
+import { CardType } from '../types/types';
 
 export const buttons: GridObject[] = [
     {
         component: Button,
         name: 'redBtn',
+        cardType: CardType.RESOURCE,
         props: {
             text: 'Red'
         },
@@ -25,6 +27,7 @@ export const buttons: GridObject[] = [
     {
         component: Button,
         name: 'RE-1',
+        cardType: CardType.UPGRADE,
         props: {
             text: 'Red + 1'
         },
@@ -57,6 +60,7 @@ export const buttons: GridObject[] = [
     {
         component: Button,
         name: 'autoGen',
+        cardType: CardType.UPGRADE,
         props: {
             text: '자동 생성 +0.1'
         },
@@ -83,6 +87,7 @@ export const buttons: GridObject[] = [
     {
         component: Button,
         name: 'clickMult',
+        cardType: CardType.UPGRADE,
         props: {
             text: '클릭 배수 +0.5'
         },
@@ -109,6 +114,7 @@ export const buttons: GridObject[] = [
     {
         component: Button,
         name: 'consume',
+        cardType: CardType.RESOURCE,
         props: {
             text: '클릭 배수 소비 5'
         },

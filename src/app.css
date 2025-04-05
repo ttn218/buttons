@@ -1,3 +1,20 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+/* 커스텀 색상 클래스 */
+.bg-neon-purple {
+  background-color: #b967ff;
+}
+
+.bg-neon-blue {
+  background-color: #4d9fff;
+}
+
+.bg-neon-green {
+  background-color: #4dff4d;
+}
+
+.bg-neon-yellow {
+  background-color: #ffff4d;
+}

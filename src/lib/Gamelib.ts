@@ -3,6 +3,7 @@ import type { GridObject, GridRuntimeObject, Action, ValidateCondition } from ".
 import GameEngine from "./GameEngine";
 import { RedResource } from "./Resources/RedResource";
 import { Decimal } from 'decimal.js';
+import { CardType } from "../types/types";
 
 // 액션 처리기 타입 정의
 type ActionHandler = (resource: any, amount: Decimal) => void;
@@ -111,7 +112,7 @@ export const createGridRuntimeObject = (grids: GridObject[]): GridRuntimeObject[
     if (!grids) return []
     
     const gridRuntimeObject: GridRuntimeObject[] = grids.map((grid) => {
-        const {component, name, validate, props, requirements, action} = grid
+        const {component, name, validate, props, requirements, action, cardType = CardType.RESOURCE} = grid
         const v = validator.makeValiDate(() => executeValidate(validate), grid.name);
 
         if (!v) return null
@@ -125,7 +126,8 @@ export const createGridRuntimeObject = (grids: GridObject[]): GridRuntimeObject[
             },
             requirements,
             validator: v,
-            action
+            action,
+            cardType
         }
     }).filter((g) => g !== null);
 

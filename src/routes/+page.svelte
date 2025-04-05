@@ -15,8 +15,8 @@
 </script>
 
 <main class="flex gap-2 text-sm">
-	{#each $runtimeObjectsStore as { component, validator, props, requirements }}
-		<Card vaildator={validator} {requirements}>
+	{#each $runtimeObjectsStore as { component, validator, props, requirements, cardType }}
+		<Card vaildator={validator} {requirements} {cardType}>
 			<svelte:component this={component} {...props} />
 		</Card>
 	{/each}

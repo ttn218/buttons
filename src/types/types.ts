@@ -6,6 +6,14 @@
 import type { Component } from 'svelte';
 import type { Writable } from 'svelte/store';
 
+// 카드 타입 열거형 추가
+export enum CardType {
+  RESOURCE = 'resource',
+  EVENT = 'event',
+  UPGRADE = 'upgrade',
+  PROGRESSION = 'progression'
+}
+
 export type ValidateFun = () => boolean;
 
 export type ValidateType = 'gte' | 'lte' | 'eq' | 'neq';
@@ -39,6 +47,13 @@ export type Action = {
 	levelStore?: string;
 };
 
+// 카드 효과 타입 정의
+export type CardEffect = {
+  type: string;
+  value: number;
+  duration?: number; // 이벤트 카드의 경우 지속 시간
+};
+
 export type GridObject = {
 	name: string;
 	validate: ValidateCondition[];
@@ -46,6 +61,9 @@ export type GridObject = {
 	props?: any;
 	requirements?: Requirement[];
 	action?: Action | Action[];
+	// 새로운 속성 추가
+	cardType: CardType;
+	effects?: CardEffect[];
 };
 
 export type GridRuntimeObject = {
@@ -55,4 +73,7 @@ export type GridRuntimeObject = {
 	props?: any;
 	requirements?: Requirement[];
 	action?: Action | Action[];
+	// 새로운 속성 추가
+	cardType: CardType;
+	effects?: CardEffect[];
 };
